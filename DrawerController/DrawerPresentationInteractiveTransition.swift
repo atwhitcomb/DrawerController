@@ -20,7 +20,6 @@ class DrawerPresentationInteractiveTransition: UIPercentDrivenInteractiveTransit
     
     func update(interactionXPosition: CGFloat) {
         update(min(interactionXPosition / presentedViewWidth, 1))
-        
     }
 
 }

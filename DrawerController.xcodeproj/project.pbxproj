@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FA2173320A62A2500AFADCD /* DrawerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2173220A62A2500AFADCD /* DrawerControllerDelegate.swift */; };
 		FB66BEB420A2A81400D84F51 /* DrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = FB66BEB220A2A81400D84F51 /* DrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB66BEBB20A2A87900D84F51 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEBA20A2A87900D84F51 /* DrawerController.swift */; };
 		FB66BEBD20A2B0A000D84F51 /* DrawerPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEBC20A2B0A000D84F51 /* DrawerPresentationController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FA2173220A62A2500AFADCD /* DrawerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerControllerDelegate.swift; sourceTree = "<group>"; };
 		FB66BEAF20A2A81400D84F51 /* DrawerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrawerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66BEB220A2A81400D84F51 /* DrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerController.h; sourceTree = "<group>"; };
 		FB66BEB320A2A81400D84F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				FB66BEB220A2A81400D84F51 /* DrawerController.h */,
 				FB66BEBA20A2A87900D84F51 /* DrawerController.swift */,
+				3FA2173220A62A2500AFADCD /* DrawerControllerDelegate.swift */,
 				FB66BEBC20A2B0A000D84F51 /* DrawerPresentationController.swift */,
 				FB66BEBE20A2BDA100D84F51 /* DrawerPresentationAnimator.swift */,
 				FB66BEC020A5485F00D84F51 /* DrawerDismissionAnimator.swift */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB66BEBD20A2B0A000D84F51 /* DrawerPresentationController.swift in Sources */,
+				3FA2173320A62A2500AFADCD /* DrawerControllerDelegate.swift in Sources */,
 				FB66BEBF20A2BDA100D84F51 /* DrawerPresentationAnimator.swift in Sources */,
 				FB66BEC320A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift in Sources */,
 				FB66BEBB20A2A87900D84F51 /* DrawerController.swift in Sources */,
