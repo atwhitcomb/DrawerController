@@ -10,10 +10,10 @@
 		3FA2173320A62A2500AFADCD /* DrawerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2173220A62A2500AFADCD /* DrawerControllerDelegate.swift */; };
 		FB66BEB420A2A81400D84F51 /* DrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = FB66BEB220A2A81400D84F51 /* DrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB66BEBB20A2A87900D84F51 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEBA20A2A87900D84F51 /* DrawerController.swift */; };
-		FB66BEBD20A2B0A000D84F51 /* DrawerPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEBC20A2B0A000D84F51 /* DrawerPresentationController.swift */; };
 		FB66BEBF20A2BDA100D84F51 /* DrawerPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEBE20A2BDA100D84F51 /* DrawerPresentationAnimator.swift */; };
 		FB66BEC120A5485F00D84F51 /* DrawerDismissionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEC020A5485F00D84F51 /* DrawerDismissionAnimator.swift */; };
 		FB66BEC320A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEC220A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift */; };
+		FB66BEC520A7F89700D84F51 /* DrawerDismissionInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEC420A7F89600D84F51 /* DrawerDismissionInteractiveTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +22,10 @@
 		FB66BEB220A2A81400D84F51 /* DrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerController.h; sourceTree = "<group>"; };
 		FB66BEB320A2A81400D84F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB66BEBA20A2A87900D84F51 /* DrawerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
-		FB66BEBC20A2B0A000D84F51 /* DrawerPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerPresentationController.swift; sourceTree = "<group>"; };
 		FB66BEBE20A2BDA100D84F51 /* DrawerPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerPresentationAnimator.swift; sourceTree = "<group>"; };
 		FB66BEC020A5485F00D84F51 /* DrawerDismissionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerDismissionAnimator.swift; sourceTree = "<group>"; };
 		FB66BEC220A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerPresentationInteractiveTransition.swift; sourceTree = "<group>"; };
+		FB66BEC420A7F89600D84F51 /* DrawerDismissionInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerDismissionInteractiveTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +61,10 @@
 				FB66BEB220A2A81400D84F51 /* DrawerController.h */,
 				FB66BEBA20A2A87900D84F51 /* DrawerController.swift */,
 				3FA2173220A62A2500AFADCD /* DrawerControllerDelegate.swift */,
-				FB66BEBC20A2B0A000D84F51 /* DrawerPresentationController.swift */,
 				FB66BEBE20A2BDA100D84F51 /* DrawerPresentationAnimator.swift */,
 				FB66BEC020A5485F00D84F51 /* DrawerDismissionAnimator.swift */,
 				FB66BEC220A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift */,
+				FB66BEC420A7F89600D84F51 /* DrawerDismissionInteractiveTransition.swift */,
 				FB66BEB320A2A81400D84F51 /* Info.plist */,
 			);
 			path = DrawerController;
@@ -149,9 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB66BEBD20A2B0A000D84F51 /* DrawerPresentationController.swift in Sources */,
 				3FA2173320A62A2500AFADCD /* DrawerControllerDelegate.swift in Sources */,
 				FB66BEBF20A2BDA100D84F51 /* DrawerPresentationAnimator.swift in Sources */,
+				FB66BEC520A7F89700D84F51 /* DrawerDismissionInteractiveTransition.swift in Sources */,
 				FB66BEC320A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift in Sources */,
 				FB66BEBB20A2A87900D84F51 /* DrawerController.swift in Sources */,
 				FB66BEC120A5485F00D84F51 /* DrawerDismissionAnimator.swift in Sources */,

@@ -11,10 +11,7 @@ import Foundation
 protocol DrawerControllerDelegate: class {
     
     func drawerControllerShouldAllowInteractivePresenting(_ drawerController: DrawerController) -> Bool
-    func drawerControllerPresentationGestureBegan(_ drawerController: DrawerController)
-    
     func drawerControllerShouldAllowInteractiveDismission(_ drawerController: DrawerController) -> Bool
-    func drawerControllerDismissionGestureBegan(_ drawerController: DrawerController)
     
 }
 

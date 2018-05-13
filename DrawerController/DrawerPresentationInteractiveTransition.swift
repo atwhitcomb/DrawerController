@@ -10,7 +10,7 @@ import UIKit
 
 class DrawerPresentationInteractiveTransition: UIPercentDrivenInteractiveTransition {
     
-    var presentedViewWidth: CGFloat!
+    private var presentedViewWidth: CGFloat!
     
     override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         let toViewController = transitionContext.viewController(forKey: .to)!
