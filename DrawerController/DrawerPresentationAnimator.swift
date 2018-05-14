@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawerPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+public class DrawerPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animator(_ transitionContext: UIViewControllerContextTransitioning) -> UIViewPropertyAnimator {
         let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
@@ -26,15 +26,15 @@ class DrawerPresentationAnimator: NSObject, UIViewControllerAnimatedTransitionin
         return animator
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         animator(transitionContext).startAnimation()
     }
     
-    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+    public func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
         return animator(transitionContext)
     }
     

@@ -8,17 +8,20 @@
 
 import UIKit
 
-class DrawerPresentationInteractiveTransition: UIPercentDrivenInteractiveTransition {
+public class DrawerPresentationInteractiveTransition: UIPercentDrivenInteractiveTransition {
     
-    private var presentedViewWidth: CGFloat!
+    private var presentedViewWidth: CGFloat?
     
-    override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    override public func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         let toViewController = transitionContext.viewController(forKey: .to)!
         presentedViewWidth = transitionContext.finalFrame(for: toViewController).width
         super.startInteractiveTransition(transitionContext)
     }
     
     func update(interactionXPosition: CGFloat) {
+        guard let presentedViewWidth = self.presentedViewWidth else {
+            return
+        }
         update(min(interactionXPosition / presentedViewWidth, 1))
     }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawerDismissionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+public class DrawerDismissionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     func animator(_ transitionContext: UIViewControllerContextTransitioning) -> UIViewPropertyAnimator {
         let fromView = transitionContext.view(forKey: .from)!
@@ -25,15 +25,15 @@ class DrawerDismissionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         return animator
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         animator(transitionContext).startAnimation()
     }
     
-    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+    public func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
         return animator(transitionContext)
     }
     

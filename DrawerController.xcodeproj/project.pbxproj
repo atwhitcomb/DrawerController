@@ -14,7 +14,38 @@
 		FB66BEC120A5485F00D84F51 /* DrawerDismissionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEC020A5485F00D84F51 /* DrawerDismissionAnimator.swift */; };
 		FB66BEC320A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEC220A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift */; };
 		FB66BEC520A7F89700D84F51 /* DrawerDismissionInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66BEC420A7F89600D84F51 /* DrawerDismissionInteractiveTransition.swift */; };
+		FB88BC3D20A8B27D00F8D6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88BC3C20A8B27D00F8D6DF /* AppDelegate.swift */; };
+		FB88BC3F20A8B27D00F8D6DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88BC3E20A8B27D00F8D6DF /* ViewController.swift */; };
+		FB88BC4420A8B27F00F8D6DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB88BC4320A8B27F00F8D6DF /* Assets.xcassets */; };
+		FB88BC4720A8B27F00F8D6DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB88BC4520A8B27F00F8D6DF /* LaunchScreen.storyboard */; };
+		FB88BC5320A8B39B00F8D6DF /* DrawerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB66BEAF20A2A81400D84F51 /* DrawerController.framework */; };
+		FB88BC5420A8B39B00F8D6DF /* DrawerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB66BEAF20A2A81400D84F51 /* DrawerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FBB233F120A8B72E009A1E8D /* DrawerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB233F020A8B72E009A1E8D /* DrawerNavigationController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB88BC5520A8B39B00F8D6DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB66BEA620A2A81400D84F51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB66BEAE20A2A81400D84F51;
+			remoteInfo = DrawerController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB88BC5220A8B37400F8D6DF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FB88BC5420A8B39B00F8D6DF /* DrawerController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3FA2173220A62A2500AFADCD /* DrawerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerControllerDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +57,13 @@
 		FB66BEC020A5485F00D84F51 /* DrawerDismissionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerDismissionAnimator.swift; sourceTree = "<group>"; };
 		FB66BEC220A54AF100D84F51 /* DrawerPresentationInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerPresentationInteractiveTransition.swift; sourceTree = "<group>"; };
 		FB66BEC420A7F89600D84F51 /* DrawerDismissionInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerDismissionInteractiveTransition.swift; sourceTree = "<group>"; };
+		FB88BC3A20A8B27D00F8D6DF /* DrawerControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawerControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB88BC3C20A8B27D00F8D6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB88BC3E20A8B27D00F8D6DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB88BC4320A8B27F00F8D6DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB88BC4620A8B27F00F8D6DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB88BC4820A8B27F00F8D6DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBB233F020A8B72E009A1E8D /* DrawerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +74,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB88BC3720A8B27D00F8D6DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB88BC5320A8B39B00F8D6DF /* DrawerController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -43,7 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				FB66BEB120A2A81400D84F51 /* DrawerController */,
+				FB88BC3B20A8B27D00F8D6DF /* DrawerControllerExample */,
 				FB66BEB020A2A81400D84F51 /* Products */,
+				FB88BC4C20A8B29800F8D6DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FB66BEAF20A2A81400D84F51 /* DrawerController.framework */,
+				FB88BC3A20A8B27D00F8D6DF /* DrawerControllerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +117,26 @@
 				FB66BEB320A2A81400D84F51 /* Info.plist */,
 			);
 			path = DrawerController;
+			sourceTree = "<group>";
+		};
+		FB88BC3B20A8B27D00F8D6DF /* DrawerControllerExample */ = {
+			isa = PBXGroup;
+			children = (
+				FB88BC3C20A8B27D00F8D6DF /* AppDelegate.swift */,
+				FBB233F020A8B72E009A1E8D /* DrawerNavigationController.swift */,
+				FB88BC3E20A8B27D00F8D6DF /* ViewController.swift */,
+				FB88BC4320A8B27F00F8D6DF /* Assets.xcassets */,
+				FB88BC4520A8B27F00F8D6DF /* LaunchScreen.storyboard */,
+				FB88BC4820A8B27F00F8D6DF /* Info.plist */,
+			);
+			path = DrawerControllerExample;
+			sourceTree = "<group>";
+		};
+		FB88BC4C20A8B29800F8D6DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,18 +171,41 @@
 			productReference = FB66BEAF20A2A81400D84F51 /* DrawerController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FB88BC3920A8B27D00F8D6DF /* DrawerControllerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB88BC4B20A8B27F00F8D6DF /* Build configuration list for PBXNativeTarget "DrawerControllerExample" */;
+			buildPhases = (
+				FB88BC3620A8B27D00F8D6DF /* Sources */,
+				FB88BC3720A8B27D00F8D6DF /* Frameworks */,
+				FB88BC3820A8B27D00F8D6DF /* Resources */,
+				FB88BC5220A8B37400F8D6DF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB88BC5620A8B39B00F8D6DF /* PBXTargetDependency */,
+			);
+			name = DrawerControllerExample;
+			productName = DrawerControllerExample;
+			productReference = FB88BC3A20A8B27D00F8D6DF /* DrawerControllerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		FB66BEA620A2A81400D84F51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Andrew James Thomas Whitcomb";
 				TargetAttributes = {
 					FB66BEAE20A2A81400D84F51 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
+					};
+					FB88BC3920A8B27D00F8D6DF = {
+						CreatedOnToolsVersion = 9.3;
 					};
 				};
 			};
@@ -123,6 +215,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = FB66BEA520A2A81400D84F51;
 			productRefGroup = FB66BEB020A2A81400D84F51 /* Products */;
@@ -130,6 +223,7 @@
 			projectRoot = "";
 			targets = (
 				FB66BEAE20A2A81400D84F51 /* DrawerController */,
+				FB88BC3920A8B27D00F8D6DF /* DrawerControllerExample */,
 			);
 		};
 /* End PBXProject section */
@@ -139,6 +233,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB88BC3820A8B27D00F8D6DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB88BC4720A8B27F00F8D6DF /* LaunchScreen.storyboard in Resources */,
+				FB88BC4420A8B27F00F8D6DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +261,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB88BC3620A8B27D00F8D6DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB233F120A8B72E009A1E8D /* DrawerNavigationController.swift in Sources */,
+				FB88BC3F20A8B27D00F8D6DF /* ViewController.swift in Sources */,
+				FB88BC3D20A8B27D00F8D6DF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB88BC5620A8B39B00F8D6DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB66BEAE20A2A81400D84F51 /* DrawerController */;
+			targetProxy = FB88BC5520A8B39B00F8D6DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB88BC4520A8B27F00F8D6DF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB88BC4620A8B27F00F8D6DF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FB66BEB520A2A81400D84F51 /* Debug */ = {
@@ -334,6 +466,44 @@
 			};
 			name = Release;
 		};
+		FB88BC4920A8B27F00F8D6DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y46BDLUQ9J;
+				INFOPLIST_FILE = DrawerControllerExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = atw.DrawerControllerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB88BC4A20A8B27F00F8D6DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y46BDLUQ9J;
+				INFOPLIST_FILE = DrawerControllerExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = atw.DrawerControllerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -351,6 +521,15 @@
 			buildConfigurations = (
 				FB66BEB820A2A81400D84F51 /* Debug */,
 				FB66BEB920A2A81400D84F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB88BC4B20A8B27F00F8D6DF /* Build configuration list for PBXNativeTarget "DrawerControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB88BC4920A8B27F00F8D6DF /* Debug */,
+				FB88BC4A20A8B27F00F8D6DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

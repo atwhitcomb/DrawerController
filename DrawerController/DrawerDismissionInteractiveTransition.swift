@@ -8,25 +8,33 @@
 
 import UIKit
 
-class DrawerDismissionInteractiveTransition: UIPercentDrivenInteractiveTransition {
+public class DrawerDismissionInteractiveTransition: UIPercentDrivenInteractiveTransition {
     
-    private var presentedViewWidth: CGFloat!
+    private var presentedViewWidth: CGFloat?
     private(set) var currentInteractionXTranslation: CGFloat = 0
     
-    override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    override public func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         let fromViewController = transitionContext.viewController(forKey: .from)!
         presentedViewWidth = transitionContext.finalFrame(for: fromViewController).width
         super.startInteractiveTransition(transitionContext)
     }
     
     func update(interactionXPosition: CGFloat) {
-        let interactionXTranslation = max(presentedViewWidth - presentedViewWidth, 0)
+        guard let presentedViewWidth = self.presentedViewWidth else {
+            return
+        }
+        
+        let interactionXTranslation = min(interactionXPosition - presentedViewWidth, 0)
         self.update(interactionXTranslation: interactionXTranslation)
     }
     
     func update(interactionXTranslation: CGFloat) {
+        guard let presentedViewWidth = self.presentedViewWidth else {
+            return
+        }
+        
         currentInteractionXTranslation = interactionXTranslation
-        var percentComplete = (presentedViewWidth + interactionXTranslation) / presentedViewWidth
+        var percentComplete = -1 * interactionXTranslation / presentedViewWidth
         percentComplete = min(percentComplete, 1)
         percentComplete = max(percentComplete, 0)
         update(percentComplete)

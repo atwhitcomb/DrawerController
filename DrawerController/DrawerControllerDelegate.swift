@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DrawerControllerDelegate: class {
+public protocol DrawerControllerDelegate: class {
     
     func drawerControllerShouldAllowInteractivePresenting(_ drawerController: DrawerController) -> Bool
     func drawerControllerShouldAllowInteractiveDismission(_ drawerController: DrawerController) -> Bool
