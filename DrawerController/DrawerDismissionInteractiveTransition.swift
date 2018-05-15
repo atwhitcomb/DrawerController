@@ -10,8 +10,12 @@ import UIKit
 
 public class DrawerDismissionInteractiveTransition: UIPercentDrivenInteractiveTransition {
     
-    private var presentedViewWidth: CGFloat?
-    private(set) var currentInteractionXTranslation: CGFloat = 0
+    private(set) var presentedViewWidth: CGFloat?
+    var currentInteractionXTranslation: CGFloat {
+        get {
+            return -1 * percentComplete * (presentedViewWidth ?? 0)
+        }
+    }
     
     override public func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         let fromViewController = transitionContext.viewController(forKey: .from)!
@@ -33,7 +37,6 @@ public class DrawerDismissionInteractiveTransition: UIPercentDrivenInteractiveTr
             return
         }
         
-        currentInteractionXTranslation = interactionXTranslation
         var percentComplete = -1 * interactionXTranslation / presentedViewWidth
         percentComplete = min(percentComplete, 1)
         percentComplete = max(percentComplete, 0)

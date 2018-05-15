@@ -28,18 +28,24 @@ public class DrawerController: UIPresentationController {
     }
     var interactiveClosing = false
     private lazy var drawerDismissionGestureRecognizer: UIPanGestureRecognizer = {
-        let drawerDismissionGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DrawerController.handleDismissionGesture(_:)))
+        let drawerDismissionGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DrawerController.handlePanDismissionGesture(_:)))
         drawerDismissionGestureRecognizer.maximumNumberOfTouches = 1
         drawerDismissionGestureRecognizer.delegate = self
         drawerDismissionGestureRecognizer.isEnabled = false
         return drawerDismissionGestureRecognizer
     }()
-    private lazy var dimmingViewDismissionGestureRecognizer: UIPanGestureRecognizer = {
-        let dimmingViewDimissionGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DrawerController.handleDismissionGesture(_:)))
-        dimmingViewDimissionGestureRecognizer.maximumNumberOfTouches = 1
-        dimmingViewDimissionGestureRecognizer.delegate = self
-        dimmingViewDimissionGestureRecognizer.isEnabled = false
-        return dimmingViewDimissionGestureRecognizer
+    private lazy var dimmingViewDismissionPanGestureRecognizer: UIPanGestureRecognizer = {
+        let dimmingViewDismissionPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DrawerController.handlePanDismissionGesture(_:)))
+        dimmingViewDismissionPanGestureRecognizer.maximumNumberOfTouches = 1
+        dimmingViewDismissionPanGestureRecognizer.delegate = self
+        dimmingViewDismissionPanGestureRecognizer.isEnabled = false
+        return dimmingViewDismissionPanGestureRecognizer
+    }()
+    private lazy var dimmingViewDismissionTapGestureRecognizer: UITapGestureRecognizer = {
+        let dimmingViewDismissionTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DrawerController.handleTapDismissionGesture(_:)))
+        dimmingViewDismissionTapGestureRecognizer.delegate = self
+        dimmingViewDismissionTapGestureRecognizer.isEnabled = false
+        return dimmingViewDismissionTapGestureRecognizer
     }()
     private var currentDismissionGestureRecognizer: UIGestureRecognizer?
     weak var interactiveDismisser: DrawerDismissionInteractiveTransition?
@@ -94,11 +100,14 @@ public class DrawerController: UIPresentationController {
             return
         }
         
-        dimmingView?.addGestureRecognizer(self.dimmingViewDismissionGestureRecognizer)
-        self.dimmingViewDismissionGestureRecognizer.isEnabled = true
+        dimmingView?.addGestureRecognizer(dimmingViewDismissionPanGestureRecognizer)
+        dimmingViewDismissionPanGestureRecognizer.isEnabled = true
         
-        presentedView?.addGestureRecognizer(self.drawerDismissionGestureRecognizer)
-        self.drawerDismissionGestureRecognizer.isEnabled = true
+        dimmingView?.addGestureRecognizer(dimmingViewDismissionTapGestureRecognizer)
+        dimmingViewDismissionTapGestureRecognizer.isEnabled = true
+        
+        presentedView?.addGestureRecognizer(drawerDismissionGestureRecognizer)
+        drawerDismissionGestureRecognizer.isEnabled = true
     }
     
     override public func dismissalTransitionWillBegin() {
@@ -113,11 +122,14 @@ public class DrawerController: UIPresentationController {
             return
         }
         
-        dimmingView?.removeGestureRecognizer(self.dimmingViewDismissionGestureRecognizer)
-        self.dimmingViewDismissionGestureRecognizer.isEnabled = false
+        dimmingView?.removeGestureRecognizer(dimmingViewDismissionPanGestureRecognizer)
+        dimmingViewDismissionPanGestureRecognizer.isEnabled = false
         
-        presentedView?.removeGestureRecognizer(self.drawerDismissionGestureRecognizer)
-        self.drawerDismissionGestureRecognizer.isEnabled = false
+        dimmingView?.addGestureRecognizer(dimmingViewDismissionTapGestureRecognizer)
+        dimmingViewDismissionTapGestureRecognizer.isEnabled = false
+        
+        presentedView?.removeGestureRecognizer(drawerDismissionGestureRecognizer)
+        drawerDismissionGestureRecognizer.isEnabled = false
     }
 
 }
@@ -172,19 +184,22 @@ extension DrawerController {
 
 extension DrawerController {
     
-    @objc func handleDismissionGesture(_ dismissionGesture: UIScreenEdgePanGestureRecognizer) {
+    @objc func handlePanDismissionGesture(_ dismissionGesture: UIPanGestureRecognizer) {
         switch (dismissionGesture.state, dismissionGesture) {
         case (.began, _):
-            if !interactiveClosing {
-                interactiveClosing = true
-                currentDismissionGestureRecognizer = dismissionGesture
+            interactiveClosing = true
+            currentDismissionGestureRecognizer = dismissionGesture
+            if let interactiveDismisser = self.interactiveDismisser {
+                interactiveDismisser.pause()
+                let interactiveXTranslation = interactiveDismisser.currentInteractionXTranslation
+                dismissionGesture.setTranslation(CGPoint(x: interactiveXTranslation, y: 0), in: drawerDismissionGestureRecognizer.view)
+            } else {
                 presentingViewController.dismiss(animated: true, completion: nil)
-            } else if dismissionGesture == drawerDismissionGestureRecognizer {
-                currentDismissionGestureRecognizer = drawerDismissionGestureRecognizer
-                let interactiveXTranslation = interactiveDismisser?.currentInteractionXTranslation ?? 0
-                drawerDismissionGestureRecognizer.setTranslation(CGPoint(x: interactiveXTranslation, y: 0), in: drawerDismissionGestureRecognizer.view)
-                dimmingViewDismissionGestureRecognizer.isEnabled = false
-                dimmingViewDismissionGestureRecognizer.isEnabled = true
+            }
+            
+            if dismissionGesture == drawerDismissionGestureRecognizer {
+                dimmingViewDismissionPanGestureRecognizer.isEnabled = false
+                dimmingViewDismissionPanGestureRecognizer.isEnabled = true
             }
         case (.changed, currentDismissionGestureRecognizer):
             let velocity = dismissionGesture.velocity(in: dismissionGesture.view)
@@ -196,7 +211,7 @@ extension DrawerController {
             case drawerDismissionGestureRecognizer:
                 let interactionXTranslation = dismissionGesture.translation(in: dismissionGesture.view).x
                 interactiveDismisser.update(interactionXTranslation: interactionXTranslation)
-            case dimmingViewDismissionGestureRecognizer:
+            case dimmingViewDismissionPanGestureRecognizer:
                 let interactionXPosition = dismissionGesture.location(in: dismissionGesture.view).x
                 interactiveDismisser.update(interactionXPosition: interactionXPosition)
             default:
@@ -221,6 +236,12 @@ extension DrawerController {
         }
     }
     
+    @objc func handleTapDismissionGesture(_ dismissionGesture: UIPanGestureRecognizer) {
+        if dismissionGesture.state == .ended {
+            presentingViewController.dismiss(animated: true, completion: nil)
+        }
+    }
+    
 }
 
 // MARK: UIGestureRecognizerDelegate
@@ -233,8 +254,10 @@ extension DrawerController: UIGestureRecognizerDelegate {
             return allowsInteractiveOpening
         case drawerDismissionGestureRecognizer:
             return allowsInteractiveClosing
-        case dimmingViewDismissionGestureRecognizer:
+        case dimmingViewDismissionPanGestureRecognizer:
             return allowsInteractiveClosing
+        case dimmingViewDismissionTapGestureRecognizer:
+            return !interactiveClosing
         default:
             return false
         }
@@ -249,7 +272,7 @@ extension DrawerController: UIGestureRecognizerDelegate {
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return !(gestureRecognizer == drawerDismissionGestureRecognizer && otherGestureRecognizer == dimmingViewDismissionGestureRecognizer)
+        return !(gestureRecognizer == drawerDismissionGestureRecognizer && otherGestureRecognizer == dimmingViewDismissionPanGestureRecognizer)
     }
     
 }
@@ -271,21 +294,17 @@ extension DrawerController: UIViewControllerTransitioningDelegate {
     }
     
     public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if interactiveOpening {
-            let interactivePresenter = DrawerPresentationInteractiveTransition()
-            self.interactivePresenter = interactivePresenter
-            return interactivePresenter
-        }
-        return nil
+        let interactivePresenter = DrawerPresentationInteractiveTransition()
+        interactivePresenter.wantsInteractiveStart = interactiveOpening
+        self.interactivePresenter = interactivePresenter
+        return interactivePresenter
     }
     
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if interactiveClosing {
-            let interactiveDismission = DrawerDismissionInteractiveTransition()
-            self.interactiveDismisser = interactiveDismission
-            return interactiveDismission
-        }
-        return nil
+        let interactiveDismission = DrawerDismissionInteractiveTransition()
+        interactiveDismission.wantsInteractiveStart = interactiveClosing
+        self.interactiveDismisser = interactiveDismission
+        return interactiveDismission
     }
     
 }

@@ -11,6 +11,7 @@ import DrawerController
 
 class DrawerNavigationController: UINavigationController {
 
+    var drawerBarButtonItem: UIBarButtonItem = UIBarButtonItem(title: "Drawer", style: .plain, target: self, action: #selector(DrawerNavigationController.presentDrawer));
     var drawerViewController: UIViewController = {
         let drawerViewController = UIViewController(nibName: nil, bundle: nil)
         drawerViewController.view.backgroundColor = .blue
@@ -35,5 +36,14 @@ class DrawerNavigationController: UINavigationController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         drawerController = DrawerController(presentedViewController: drawerViewController, presenting: self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewControllers.first?.navigationItem.leftBarButtonItem = drawerBarButtonItem
+    }
+    
+    @objc func presentDrawer() {
+        present(drawerViewController, animated: true, completion: nil)
     }
 }
